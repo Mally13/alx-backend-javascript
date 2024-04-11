@@ -10,7 +10,7 @@ export default class HolbertonCourse {
   }
 
   set name(value) {
-    this._name = this.validateName(value);
+    this._name = HolbertonCourse.validateName(value);
   }
 
   get length() {
@@ -18,7 +18,7 @@ export default class HolbertonCourse {
   }
 
   set length(value) {
-    this._length = this.validateLength(value);
+    this._length = HolbertonCourse.validateLength(value);
   }
 
   get students() {
@@ -26,7 +26,7 @@ export default class HolbertonCourse {
   }
 
   set students(value) {
-    this._students = this.validateStudents(value);
+    this._students = HolbertonCourse.validateStudents(value);
   }
 
   static validateName(value) {
