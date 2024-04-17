@@ -28,15 +28,28 @@ class Teacher {
             }
         });
     }
+
+    workFromHome() {
+        return 'Cannot work from home';
+    }
+
+    getCoffeeBreak() {
+        return 'Cannot have a break';
+    }
+
+    workTeacherTasks() {
+        return 'Getting to work';
+    }
+
 }
 
-const teacher3: Teacher = {
+const teacher3 = new Teacher({
     firstName: 'John',
     fullTimeEmployee: false,
     lastName: 'Doe',
     location: 'London',
     contract: false,
-};
+});
 console.log(teacher3);
 
 interface DirectorProps extends TeacherProps {
@@ -44,12 +57,24 @@ interface DirectorProps extends TeacherProps {
 }
 
 
-class Directors extends Teacher {
+class Director extends Teacher {
     numberOfReports: number;
 
     constructor(props: DirectorProps) {
         super(props);
         this.numberOfReports = props.numberOfReports;
+    }
+
+    workFromHome() {
+        return 'Working from home';
+    }
+
+    getCoffeeBreak() {
+        return 'Getting a coffee break';
+    }
+
+    workDirectorTasks() {
+        return 'Getting to director tasks'
     }
 }
 
@@ -82,4 +107,11 @@ class StudentClass {
     displayName() {
         return this.firstName;
     }
+}
+
+function createEmployee(salary: number | string): Director | Teacher {
+    if (Number(salary) < 500) {
+        return new Teacher({firstName:'j', lastName:'g', fullTimeEmployee: true, location: 'Nairobi'});
+    }
+    return new Director({firstName:'j', lastName:'g', fullTimeEmployee: true, location: 'Nairobi', numberOfReports: 20,});
 }
