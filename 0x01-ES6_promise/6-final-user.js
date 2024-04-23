@@ -9,6 +9,6 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
 
   return [
     { status: userResult.status, value: userResult.value },
-    { status: photoResult.status, value: photoResult.value },
+    // { status: photoResult.status, value: photoResult.value },
   ];
 }
