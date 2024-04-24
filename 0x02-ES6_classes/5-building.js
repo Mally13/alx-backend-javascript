@@ -1,4 +1,4 @@
-export default class Pricing {
+export default class Building {
   constructor(sqft) {
     this._sqft = sqft;
   }
