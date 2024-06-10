@@ -1,13 +1,12 @@
-const displayMessage = require('./0-console');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-displayMessage('Welcome to Holberton School, what is your name?');
-process.stdin.setEncoding('utf-8');
-process.stdin.on('data', (data) => {
-  displayMessage(`Your name is: ${data.trim()}`);
-  if (!process.stdin.isTTY) {
-    console.log('This important software is now closing');
+process.stdin.on('readable', () => {
+  const uInput = process.stdin.read();
+  if (uInput !== null) {
+    process.stdout.write(`Your name is: ${uInput}`);
   }
-  process.exit();
 });
 
-process.stdin.resume();
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
+});
